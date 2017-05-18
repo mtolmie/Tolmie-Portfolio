@@ -239,10 +239,10 @@ input[type=submit] {
 }
 
 
-@media screen and (max-width: 980px) {
+/*@media screen and (max-width: 980px) {
   
   p {
-    background-color: #333;
+    background-color: #444;
   }
 }
 
@@ -259,7 +259,7 @@ input[type=submit] {
   p {
     background-color: #444;
   }
-}
+}*/
 
 
   /* The wrapper's width will be 600px */
