@@ -93,7 +93,7 @@ if(state === "still") {
       var band = $(this).attr("data-band");
       // console.log("this: ",this);
     // Example queryURL for Giphy API
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + band + "&api_key=dc6zaTOxFJmzC&limit=10";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + band + "&api_key=dc6zaTOxFJmzC&limit=10";
     
 	$.ajax({
           url: queryURL,
