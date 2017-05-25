@@ -239,6 +239,11 @@ input[type=submit] {
 }
 
 
+#buttons {
+    color: green;
+    
+}
+
 /*@media screen and (max-width: 980px) {
   
   p {
