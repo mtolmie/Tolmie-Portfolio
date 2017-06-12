@@ -17,6 +17,7 @@ body {
   max-width: 960px;
   margin: 0 auto;
   clear: both;
+
 }
 
 h1,
@@ -130,10 +131,10 @@ h3,
 }
 
 .social {
-  width: 62px;
-  height: 62px;
-  margin-top: 8px;
-  margin-right: 5px;
+  width: 100px;
+  height: 120px;
+  margin-top: 28px;
+  margin-right: 255px;
 }
 
 .social:last-child {
@@ -144,6 +145,7 @@ h3,
 
 #main-container {
   padding-top: 130px;
+  color:black;
 }
 
 .main-section {
@@ -283,4 +285,10 @@ input[type=submit] {
   width: 100%;
   }
 
+}
+
+#chef{
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
