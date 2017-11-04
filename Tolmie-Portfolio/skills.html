@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>About | Michael Tolmie </title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">  
+</head>
+<body><link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <script src="https://use.fontawesome.com/556453154e.js"></script>
+</head>
+
+<body>
+
+  <header id="masthead">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <div class="container">
+      <a href="index.html" id="logo">Michael Tolmie</a>
+      <nav>
+        <a href="index.html"><strong>About</a>
+        <a href="portfolio.html"><strong>Portfolio</a>
+        <a href="skills.html"><strong>Skills</a>
+        <a href="contact.html"><strong>Contact</a>
+        
+      </nav>
+    </div>
+  </header>
+
+
+
+<div class="container">
+    <h1> My skills are below.</h1>
+
+<div id="buttons">
+    <button data-band="Integrated Media Strategy">
+     Integrated Media Strategy
+     <button data-band="Brand Building">
+     Brand Building
+     <button data-band="Market Research">
+      Market Research
+     <button data-band="Leadership">
+      Leadership
+    <button data-band="Project Managment">
+     Project Management
+     <button data-band="Content Marketing">
+     Content Marketing
+    <button data-band="Google Analytics">
+     Google Analytics
+    </button>
+    <button data-band="Google Adwords">
+      Google AdWords
+    </button>
+    <button data-band="Front-End Web Design">
+      Front-End Web Design
+    </button>
+    <button data-band="Product Marketing Strategy">
+      Product Marketing Strategy
+    </button>
+    <button data-band="Spy Fu">
+      Spy Fu
+    </button>
+    <button data-band="Social Media Strategy">
+      Social Media Strategy
+    </button>
+    <button data-band="Digital Video">
+      Digital Video
+    </button>
+
+
+    <div id="gifs-appear-here">
+  </div>
+
+<script type ="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+  <script type="text/javascript">
+
+$(".gif").on("click", function() {
+
+var state = $(this).attr("data-state");
+      // console.log(state);
+
+if(state === "still") {
+        $(this).attr("data-state","animate");
+        $(this).attr("src",$(this).attr("data-animate"));
+      } else {
+        $(this).attr("data-state","still");
+        $(this).attr("src",$(this).attr("data-still"));
+      }
+    });
+  
+
+  $("button").on("click", function() {
+      var band = $(this).attr("data-band");
+      // console.log("this: ",this);
+    // Example queryURL for Giphy API
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + band + "&api_key=dc6zaTOxFJmzC&limit=10";
+    
+	$.ajax({
+          url: queryURL,
+          method: "GET"
+        })
+        .done(function(response) {
+          var results = response.data;
+          console.log(results);
+          
+          for (var i = 0; i < results.length; i++) {
+          	var movingImage = results[i].images.fixed_width_small.url;
+          	// console.log("movingImage", movingImage);
+            var stillImage = results[i].images.fixed_width_small_still.url
+            // console.log("stillImage", stillImage);
+            
+            var gifDiv = $("<div class='item'>");
+
+            var personImage = $("<img class = 'gifImage'>");
+            // now each image is going to have the class of gifimage
+            personImage.attr("src", movingImage);
+          
+            gifDiv.prepend(personImage);
+
+            $("#gifs-appear-here").prepend(gifDiv);
+            console.log($("#gifs-appear-here"));
+            
+            // need to create a class for each image to be able to call each image and call all images as a group.... 
+ 			}
+
+ 			$(".gifImage").click(function(){
+ 				console.log($(this).attr("src"));
+
+ 			});
+
+var bands = [];
+
+      // Function for displaying band data
+      function renderButtons() {
+
+        $("#bandss-view").empty();
+
+       
+        for (var i = 0; i < bands.length; i++) {
+
+          // Then dynamicaly generating buttons for each movie in the array.
+          // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
+          var a = $("<button>");
+          // Adding a class
+          a.addClass("bands");
+       
+          a.attr("data-name", bands[i]);
+          
+          a.text(bands[i]);
+          // Adding the button to the HTML
+          $("#bands-view").append(a);
+        }
+      }
+
+      // This function handles events where one button is clicked
+      $("#add-bands").on("click", function(e) {
+        // event.preventDefault() prevents the form from trying to submit itself.
+        // We're using a form so that the user can hit enter instead of clicking the button if they want
+        e.preventDefault();
+        console.log(e);
+
+        // This line will grab the text from the input box
+        var bands = $("#bands-input").val().trim();
+        // The movie from the textbox is then added to our array
+        bands.push(bands);
+
+        // calling renderButtons which handles the processing of our band array
+        renderButtons();
+      });
+
+      // Calling the renderButtons function at least once to display the initial list of bands
+      renderButtons();
+         
+
+        });
+    });
+
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+</script>
+</div>
+
+    </section>
+
+    <section class="sidebar">
+      <div id="connect">
+        <h2> Click on any button to see my skills in action. </h2>
+        <h3> Let's Connect!</h3>
+
+
+          <a href="https://www.linkedin.com/in/michael-tolmie-83527537//">
+                    <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+
+        
+
+        <a href="https://www.twitter.com/MichaelTolmie"//">
+                    <i class="fa fa-twitter-square" aria-hidden="true"></i>
+
+        <a href="https://github.com/mtolmie//">
+                    <i class="fa fa-github-square" aria-hidden="true"></i>
+
+      </div>
+    </section>
+  </div>
+
+
+       
+  <footer>
+    <div class="container">
+      Copyright &copy; 2017 Michael Tolmie
+    </div>
+  </footer>
+
+</body>
+
+</html>
